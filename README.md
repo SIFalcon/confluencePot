@@ -11,11 +11,11 @@ Affected but not yet patched systems should be deemed **compromised** until furt
 
 ## About the tool
 
-ConfluencePot is written in Golang and implements its own HTTPS server to minimize the overall attack surface. To make it appear like a legit Confluence instance it returns a bare-bones version of a Confluence landing page. Log output is written to stdout and a log file on disk. ConfluencePot **DOES NOT** allow attackers to execute commands/code on your machine, it only logs requests and returns a bogus response. To run ConfluencePot you either need to create a self-signed TLS certificate with *openssl* or request one from e.g. *Let's Encrypt*.
+ConfluencePot is written in Golang and implements its own HTTPS server to minimize the overall attack surface. To make it appear like a legit Confluence instance it returns a bare-bones version of a Confluence landing page. Log output is written to stdout and a log file on disk. ConfluencePot **DOES NOT** allow attackers to execute commands/code on your machine, it only logs requests and returns a bogus response.
 
 ### Building & Running it
 
-You need a recent version of Golang to run/build confluencePot and the appropriate privileges to bind to port 443. We recommend to execute it in a tmux session for easier handling.
+You need a recent version of Golang to run/build confluencePot and the appropriate privileges to bind to port 443. We recommend to execute it in a tmux session for easier handling. To run ConfluencePot you either need to create a self-signed TLS certificate with *openssl* or request one from e.g. *Let's Encrypt*.
 
 ```
 go build confluencePot.go
