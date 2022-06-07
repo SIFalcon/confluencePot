@@ -64,7 +64,7 @@ func logger(r *http.Request) {
 	logdt := time.Now()
 	datestr := "[" + logdt.Format("01-02-2006_15:04:05") + "]\n"
 	remoteAddr := "Remote address: " + r.RemoteAddr
-	finalStr := datestr + remoteAddr + string(dumpedRequest)
+	finalStr := datestr + remoteAddr + "\n" + string(dumpedRequest)
 	color.Blue(datestr)
 	color.Red(remoteAddr)
 	fmt.Printf("%s", string(dumpedRequest))
