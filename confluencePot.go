@@ -64,7 +64,7 @@ func logger(r *http.Request) {
 	logdt := time.Now()
 	datestr := "[" + logdt.Format("01-02-2006_15:04:05") + "]\n"
 	remoteAddr := "Remote address: " + r.RemoteAddr
-	finalStr := datestr + string(dumpedRequest) + remoteAddr
+	finalStr := datestr + remoteAddr + string(dumpedRequest)
 	color.Blue(datestr)
 	color.Red(remoteAddr)
 	fmt.Printf("%s", string(dumpedRequest))
@@ -101,7 +101,7 @@ func main() {
 	mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
 
 		// don't log favicon requests
-		if !(strings.Contains(req.URL.RawPath, "favicon")) {
+		if !(strings.Contains(req.URL.Path, "favicon")) {
 			logger(req)
 		}
 
